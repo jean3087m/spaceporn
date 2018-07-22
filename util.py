@@ -61,10 +61,12 @@ class Basic():
 		self.layer = Layer(self.attrs['layer_tag'], self.attrs['layer_pool'])
 
 
-	def move(self, time): #each class haves movement representation 
+	def move(self, time): #each child haves its own movement representation 
 		pass
 
-	def blit(self, surface): #draw the rectangle to the screen 
+	def tofu_blit(self, surface): #draw the rectangle to the screen 
+		#used to make a draw on the screen in case of toggle_tofu_mode=True 
+		#also in case of no pictures are found 
 		pygame.draw.rect(surface, self.attrs['color'], self.rect)
 
 

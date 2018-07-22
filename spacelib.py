@@ -49,7 +49,7 @@ def write_object_attribute(name, name_dict, path):
 			print(f'[*]file { path } red sucessfully')
 		with open(path, 'w') as f:
 			token[name] = name_dict
-			f.write(json.dumps(token)) #makes the dict obj to a '.conf' file 
+			f.write(json.dumps(token, indent=4)) #makes the dict obj to a '.conf' file 
 			print(f'[*] file { path } writen sucessfully')
 	else:
 		raise FileNotFoundError("[!] file doesn't exists")
