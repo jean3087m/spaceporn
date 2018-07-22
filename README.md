@@ -1,2 +1,8 @@
 # spaceporn
-sci-fi horror fiction game 8===>
+sci-fi horror fiction game
+
+this is a game that you'll probably won't like.
+
+
+8======>
+

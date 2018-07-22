@@ -31,6 +31,9 @@ class Layer(): #remember that layer_pool is a set!
 		else:
 			raise TypeError("[!] object must be Basic type")
 
+	def pool_lenght(self): #retruns the lenght of the pool 
+		return len(self.layer_pool)
+
 
 
 class Basic():
@@ -42,7 +45,7 @@ class Basic():
 		self._id = _id
 
 		#checks if the basic attributes exists
-		#in case of lack of the basic attributes its throws an error 
+		#in case of lack of the basic attributes its throws an assert error 
 		assert "size" in self.attrs, "[!] size attribute is not in attrs"
 		assert "pos" in self.attrs, "[!] pos attribute is not in attrs"
 		assert "color" in self.attrs, "[!] color attribute is not in attrs"
@@ -58,7 +61,7 @@ class Basic():
 		self.layer = Layer(self.attrs['layer_tag'], self.attrs['layer_pool'])
 
 
-	def move(self, time):
+	def move(self, time): #each class haves movement representation 
 		pass
 
 	def blit(self, surface): #draw the rectangle to the screen 

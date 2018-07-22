@@ -60,7 +60,7 @@ def write_object_attribute(name, name_dict, path):
 
 ######################linear algebra space tools#########################
 
-class Vector2:
+class Vector2():
 	"""defines a 2D vector representation"""
 
 	def __init__(self, x=0, y=0):
@@ -71,6 +71,9 @@ class Vector2:
 	def __repr__(self): #fromated str representation
 		return f'Vector2 <X={ self.x }, Y={ self.y }>'
 
+	def __str__(self):
+		return repr(self)
+
 	def __add__(self, other): #adds to another vector 
 		if isinstance(other, Vector2):
 			return Vector2(self.x + other.x, self.y + other.y) 
@@ -79,7 +82,7 @@ class Vector2:
 
 	def __sub__(self, other): #subtracts by another vector 
 		if isinstance(other, Vector2):
-			self.__add__((-1)*other)
+			return self + (-1)*other
 		else:
 			raise TypeError("[!] type must be Vector2")
 
@@ -93,7 +96,7 @@ class Vector2:
 		if scalar == 0:
 			raise ZeroDivisionError("[!] seriuos pal!?")
 		else:
-			self.__rmul__(1 / scalar) #divides number by true division  
+			return self * (1 / scalar)
 
 	def dot(self, other):
 		if isinstance(other, Vector2):
@@ -106,6 +109,8 @@ class Vector2:
 
 	def unitary(self): #returns the unitary vector pointing to the same direction 
 		return self / self.module()
+
+	
 
 
 #####################################################################################
