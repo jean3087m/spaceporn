@@ -11,7 +11,7 @@ class Layer(): #remember that layer_pool is a set!
 	""""this is the game layer object.
 	tells which game objects can interact with others"""
 
-	def __init__(layer_tag, layer_pool=[]): #default initializer
+	def __init__(self, layer_tag, layer_pool=[]): #default initializer
 		self.layer_tag = layer_tag #this layer 
 		self.layer_pool = set(layer_pool) #which objects can interact with this layer_tag 
 		#make layer a set avoids redundancies 
@@ -66,7 +66,27 @@ class Basic():
 
 	def tofu_blit(self, surface): #draw the rectangle to the screen 
 		#used to make a draw on the screen in case of toggle_tofu_mode=True 
-		#also in case of no pictures are found 
+		#also in case of no pictures were found 
 		pygame.draw.rect(surface, self.attrs['color'], self.rect)
 
 
+class Player(Basic):
+	"""this is the player controller class"""
+
+	def __init__(self, _id, attrs):
+		super().__init__(_id, attrs) #gets from the mother class
+
+	def move(self, time, mouse_pos): #time passed in seconds
+		#mouse pos needs to be iterable 
+		#makes a 2d vector that points from the player to the mouse position 
+		new = sl.Vector2(mouse_pos[0], mouse_pos[1]) - sl.Vector2(self.rect.center[0], self.rect.center[1])
+		#increments the new position to the vetoctor position
+		new += new.unitary()*self.attrs['speed']*time
+		#updates the player position 
+		self.rect.center = new.x, new.y
+
+	def blit(self, surface, toggle_tofu_mode=False): #draw the real player image (in this )
+		if toggle_tofu_mode:
+			self.tofu_blit(surface)
+		else:
+			pass 
