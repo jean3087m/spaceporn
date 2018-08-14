@@ -1,0 +1,9 @@
+{
+    "color" : [255, 255, 0],
+    "size"  : [50, 50],
+    "pos"   : [0, 0], 
+    "speed" : 5,
+    "image_path_list": [],
+    "layer_name" : "player", 
+    "layer_id" : 0
+}

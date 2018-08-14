@@ -1,0 +1,10 @@
+{
+    "screen_size" : [800, 600],
+    "screen_flags": ["double_buffer"],
+    
+    "FPS"         : 60,
+
+    "gameover"    : false,
+    "tofu_mode"   : false,
+    "last_played" : ""
+}
